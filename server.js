@@ -201,7 +201,6 @@ app.post('/contact/email', (req, res) =>{
 const tasks = [];
 
 app.post('/api/tasks/add', (req, res) => {
-    // Hae tehtävän tiedot pyynnöstä
     const { title, description, dueDate } = req.body;
 
     // Luo uusi tehtävä
@@ -212,12 +211,12 @@ app.post('/api/tasks/add', (req, res) => {
         dueDate: dueDate ? new Date(dueDate) : null
     };
 
-    // Lisää tehtävä tehtävien listaan (simuloitu tietokanta)
+    // Lisää tehtävä tehtävien listaan olemassa olevaan muuttujaan.
     tasks.push(newTask);
 
-    // Palauta vahvistusviesti ja uusi tehtävä
+    // Palautetaan vahvistusviesti käyttäjälle.
     res.json({
-        message: 'Tehtävä lisätty onnistuneesti!',
+        message: 'Task added succesfully!',
         task: newTask
     });
 });
